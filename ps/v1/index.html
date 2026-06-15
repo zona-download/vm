@@ -1,1 +1,188 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Parallel Space - Droid Ciyus</title>
+  <style>
+    :root {
+      --bg: #f2f4f8;
+      --card: rgba(255, 255, 255, 0.75);
+      --text: #0c1222;
+      --muted: #5f6c89;
+      --accent: #007BFF;
+      --accent2: #0056b3;
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
 
+    [data-theme="dark"] {
+      --bg: #050b17;
+      --card: rgba(16, 24, 42, 0.55);
+      --text: #e8efff;
+      --muted: #9fb7dd;
+      --accent: #4f8bff;
+      --accent2: #82afff;
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Inter", system-ui, Roboto, Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      /* Tambahan agar konten benar-benar center */
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+
+      /* Konten center */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .download-item {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 0 0 10px 0;
+      color: var(--text);
+    }
+
+    .info {
+      color: var(--muted);
+      line-height: 1.55;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .buttons {
+      margin-top: 18px;
+    }
+
+    .btn {
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      transition: 0.2s;
+      cursor: pointer;
+      border: none;
+      min-width: 160px;
+    }
+
+    .btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    #toggleTheme {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--card);
+      padding: 10px 12px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 24px 18px;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <section class="card">
+      <div class="download-item">
+
+        <h2>Parallel Space</h2>
+
+        <p class="info">
+          Aplikasi virtual space ini khusus untuk menjalankan game guardian tanpa root.
+        </p>
+
+        <div class="buttons">
+          <button class="btn" data-link="https://sub4unlock.co/mE0Du">
+            Download
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <div id="toggleTheme">🌙 / ☀️</div>
+  <script>
+    const toggle = document.getElementById('toggleTheme');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
+    toggle.addEventListener('click', () => {
+      const now = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', now);
+      localStorage.setItem('theme', now);
+    });
+
+    
+    
+
+    document.querySelectorAll('.btn[data-link]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.location.href = btn.getAttribute('data-link');
+      });
+      btn.addEventListener('contextmenu', e => e.preventDefault());
+    });
+  </script>
+</body>
+</html>
