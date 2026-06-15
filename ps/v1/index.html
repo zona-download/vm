@@ -174,9 +174,10 @@
       localStorage.setItem('theme', now);
     });
 
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
     
-    
-
     document.querySelectorAll('.btn[data-link]').forEach(btn => {
       btn.addEventListener('click', () => {
         window.location.href = btn.getAttribute('data-link');
